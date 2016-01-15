@@ -236,7 +236,8 @@ shell()
 {
 	showMsgScreen "Shell" "Un prompt va s'ouvrir, taper \"exit\" pour quitter"
 	clear
-	bash # lançe un autre shell (voir aussi: xterm)
+	bash
+	# export PS1="User "# lançe un autre shell (voir aussi: xterm)
 }
 ###############################################################################################################
 
