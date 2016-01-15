@@ -27,12 +27,12 @@ genTemplate() # créée un fichier basique et ajoute du contenu dedans
 
 genMenu() # créée un menu sous avec interface graphique
 {
-	whiptail --title "gestionnaire" --nocancel --menu "fichier sélectionné : \"$FICHIER_EDIT\"" 0 0 7 \
-	"1)" "Voir 		$FICHIER_EDIT" \
-	"2)" "Editer 	$FICHIER_EDIT" \
-	"3)" "Générer 	$FICHIER_EDIT" \
-	"4)" "Lancer 	$FICHIER_EDIT" \
-	"5)" "Débugguer $FICHIER_EDIT" \
+	whiptail --title "gestionnaire" --nocancel --menu "fichier sélectionné : \"$FICHIER_EDIT$extension\"" 0 0 7 \
+	"1)" "Voir" 		 \
+	"2)" "Editer" \
+	"3)" "Générer" \
+	"4)" "Lancer" \
+	"5)" "Débugguer" \
 	"6)" "Imprimer" \
 	"7)" "Shell" \
 	"8)" "QUITTER" 3>&1 1>&2 2>&3 | cut -d')' -f1 > getChoix.txt # on récupère le choix de l'utilisateur
@@ -229,7 +229,7 @@ imprimerFichier()
 
 shell()
 {
-	showMsgScreen "Shell" "Un prompt va s'ouvrir, taper \"exit\" pour quitter sortir "
+	showMsgScreen "Shell" "Un prompt va s'ouvrir, taper \"exit\" pour quitter"
 	clear
 	bash # lançe un autre shell (xterm)
 }
