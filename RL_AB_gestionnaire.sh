@@ -155,7 +155,7 @@ genererFichier() # compile le fichier .cc/.cpp en -o
 	
 	if [ -f "$1$extension" ] # si le fichier (avec extension) existe, alors on génère le fichier objet
 	then
-		showMsgScreen "TEST" "Vous manipulez ce fichier : \"$1\" "
+		showMsgScreen "TEST" "Vous manipulez ce fichier : \"$1$extension\" "
 		g++ -Wall -c "$1$extension" -o "$1.o" 2> getOutput.cerr #### on créée le fichier objet ici, ET, on redirige les erreurs dans un fichier
  		if [ $? = 0 ]
 		then
@@ -266,7 +266,7 @@ then
 			then
 				showInputScreen " Renommer template" "Nom invalide : châine de caractères nulle.\nRefaire : " > getInput.choix
 			else
-				showInputScreen "Renommer template" "Le fichier \"$(cat getInput.choix)\" existe déjà (avec extension)" > getInput.choix
+				showInputScreen "Renommer template" "Le fichier \"$(cat getInput.choix)\" existe déjà." > getInput.choix
 			fi
 			
 		done
