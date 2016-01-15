@@ -184,7 +184,12 @@ lancerFichier()
 	then
 		clear
 		g++ "$1.o" -o "$1" ; "./$1" ### on lance alors le programme (renommé en son nom de base sans extension, au lieu de "a.out")
-	else
+		echo "Tapez \"q\" pour revenir au menu. "; read reponse
+		while [ $reponse != "q" ]
+		do
+			echo "Tapez \"q\" pour revenir au menu."; read reponse
+		done
+	else 
 		showMsgScreen "Lançer : $? " "Aucun fichier objet associé à \"$1$extension\" "
 	fi
 }
@@ -231,7 +236,7 @@ shell()
 {
 	showMsgScreen "Shell" "Un prompt va s'ouvrir, taper \"exit\" pour quitter"
 	clear
-	bash # lançe un autre shell (xterm)
+	bash # lançe un autre shell (voir aussi: xterm)
 }
 ###############################################################################################################
 
@@ -330,6 +335,7 @@ do
 		showMsgScreen "QUITTER" "Au revoir..."
 		rm -f getChoix.txt getOutput.cerr # quand l'utilisateur quitte le script, on supprime les fichiers encombrants / inutiles
 		CONTINUER_SCRIPT=false
+		clear
 		;;
 	*)
 		echo "FATAL ERROR" # si jamais le choix de l'utilisateur n'était pas parmis les autres, alors on arrête le script
